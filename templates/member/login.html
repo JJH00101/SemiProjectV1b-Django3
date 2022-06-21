@@ -1,0 +1,25 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} login {% endblock %}
+
+{% block content %}
+    <h2>로그인</h2>
+    <form name="loginfrm" method="post" action="login.do">
+        <div>
+            <div>
+                <label for="userid">아이디</label>
+                <input type="text" name="userid" id="userid" size="15">
+            </div>
+            <div>
+                <label for="passwd">비밀번호</label>
+                <input type="password" name="passwd" id="passwd" size="15">
+            </div>
+        </div>
+        <div>
+            <!--<label></label>-->
+            <button type="button">로그인</button>
+        </div>
+    </form>
+{% endblock %}
+
+

@@ -1,0 +1,114 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} list {% endblock %}
+
+{% block content %}
+    <h2>게시판</h2>
+    <table id="board">
+        <colgroup>
+            <col style="width: 10%">
+            <col style="">
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col style="width: 10%">
+        </colgroup>
+        <tr>
+            <th colspan="5">
+                <button type="button" onclick="location.href='write.html'">새글쓰기</button>
+            </th>
+        </tr>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><a href="view.html?bno=1">시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</a></td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
+            <td>gazro</td>
+            <td>2022-05-27</td>
+            <td>777</td>
+        </tr>
+    </table>
+    <ul id="pgnav">
+        <li>이전</li>
+        <li class="cpage">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>다음</li>
+    </ul>
+{% endblock %}
+
+

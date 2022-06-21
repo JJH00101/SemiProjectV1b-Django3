@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} list {% endblock %}
+
+{% block content %}
+        <h2>게시판 새글쓰기</h2>
+        <form name="boardfrm" method="post" action="board.do" id="write">
+            <div>
+                <label for="title">제목</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div>
+                <label for="title">작성자</label>
+                <span>gazro</span>
+            </div>
+            <div>
+                <label for="contents">본문</label>
+                <textarea name="contents" id="contents" rows="10" cols="50">
+            </textarea>
+            </div>
+            <div><label></label>
+                <button type="submit">입력완료</button>
+                <button type="reset">다시입력</button>
+            </div>
+        </form>
+{% endblock %}
