@@ -4,11 +4,15 @@
 
 {% block content %}
     <h2>회원가입</h2>
-    <form name="join" method="post" action="join.do">
+    <form name="joinfrm" id="joinfrm" method="post">
+
+    <div><ul style="color: red">{{ error|safe }}</ul></div>
+        {# 동일 출처origin 확인용 쿠키 생성#}
+        {% csrf_token %}
         <div>
             <div>
                 <label for="userid">아이디</label>
-                <input type="text" name="userid" id="userid">
+                <input type="text" name="userid" id="userid" value="{{ form.userid }}">
             </div>
             <div>
                 <label for="passwd">비밀번호</label>
@@ -20,19 +24,55 @@
             </div>
             <div>
                 <label for="name">이름</label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" value="{{ form.name }}">
             </div>
             <div>
                 <label for="email">이메일</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" value="{{ form.email }}">
             </div>
         </div>
         <div>
             <!--<label></label>-->
-            <button type="submit">입력완료</button>
+            <button type="submit" id="joinbtn">입력완료</button>
             <button type="reset">다시입력</button>
         </div>
     </form>
+{% endblock %}
+
+{% block jscript %}
+    <script>
+        {#const joinfrm = document.querySelector('#joinfrm');#}
+        {#joinfrm.addEventListener('submit', (e) => {#}
+        {#    let userid = document.joinfrm.userid;#}
+        {#    let passwd = document.joinfrm.passwd;#}
+        {#    let repasswd = document.joinfrm.repasswd;#}
+        {#    let name = document.joinfrm.name;#}
+        {#    let email = document.joinfrm.email;#}
+        {##}
+        {#    if (userid.value === '') {#}
+        {#        alert('아이디를 입력하세요!');#}
+        {#        userid.focus();#}
+        {#        e.preventDefault();#}
+        {#    } else if (passwd.value === '') {#}
+        {#        alert('비밀번호를 입력하세요!');#}
+        {#        passwd.focus();#}
+        {#        e.preventDefault();#}
+        {#    } else if (passwd.value !== repasswd.value) {#}
+        {#        alert('비밀번호가 일치하지 않습니다!');#}
+        {#        repasswd.focus();#}
+        {#        e.preventDefault();#}
+        {#    } else if (name.value === '') {#}
+        {#        alert('이름을 입력하세요!');#}
+        {#        name.focus();#}
+        {#        e.preventDefault();#}
+        {#    } else if (email.value === '') {#}
+        {#        alert('이메일을 입력하세요!');#}
+        {#        email.focus();#}
+        {#        e.preventDefault();#}
+        {#    }#}
+//        });
+    </script>
+
 {% endblock %}
 
 
