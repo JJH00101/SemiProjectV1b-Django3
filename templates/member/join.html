@@ -9,9 +9,19 @@
 
 {% extends 'layout/base.html' %}
 
+
+
 {% block title %} join {% endblock %}
 
 {% block content %}
+
+
+{#만약 로그인 되어있다면, 회원가입 페이지는 더 이상 보이면 안 됨#}
+{% if request.session.userid %}
+    <script>
+        location.href = '/';
+    </script>
+{% endif %}
     <h2>회원가입</h2>
     <form name="joinfrm" id="joinfrm" method="post">
 
@@ -49,39 +59,39 @@
 {% endblock %}
 
 {% block jscript %}
+{% comment %}
     <script>
-        {#const joinfrm = document.querySelector('#joinfrm');#}
-        {#joinfrm.addEventListener('submit', (e) => {#}
-        {#    let userid = document.joinfrm.userid;#}
-        {#    let passwd = document.joinfrm.passwd;#}
-        {#    let repasswd = document.joinfrm.repasswd;#}
-        {#    let name = document.joinfrm.name;#}
-        {#    let email = document.joinfrm.email;#}
-        {##}
-        {#    if (userid.value === '') {#}
-        {#        alert('아이디를 입력하세요!');#}
-        {#        userid.focus();#}
-        {#        e.preventDefault();#}
-        {#    } else if (passwd.value === '') {#}
-        {#        alert('비밀번호를 입력하세요!');#}
-        {#        passwd.focus();#}
-        {#        e.preventDefault();#}
-        {#    } else if (passwd.value !== repasswd.value) {#}
-        {#        alert('비밀번호가 일치하지 않습니다!');#}
-        {#        repasswd.focus();#}
-        {#        e.preventDefault();#}
-        {#    } else if (name.value === '') {#}
-        {#        alert('이름을 입력하세요!');#}
-        {#        name.focus();#}
-        {#        e.preventDefault();#}
-        {#    } else if (email.value === '') {#}
-        {#        alert('이메일을 입력하세요!');#}
-        {#        email.focus();#}
-        {#        e.preventDefault();#}
-        {#    }#}
-//        });
+        const joinfrm = document.querySelector('#joinfrm');
+        joinfrm.addEventListener('submit', (e) => {
+            let userid = document.joinfrm.userid;
+            let passwd = document.joinfrm.passwd;
+            let repasswd = document.joinfrm.repasswd;
+            let name = document.joinfrm.name;
+            let email = document.joinfrm.email;
+
+            if (userid.value === '') {
+                alert('아이디를 입력하세요!');
+                userid.focus();
+                e.preventDefault();
+            } else if (passwd.value === '') {
+                alert('비밀번호를 입력하세요!');
+                passwd.focus();
+                e.preventDefault();
+            } else if (passwd.value !== repasswd.value) {
+                alert('비밀번호가 일치하지 않습니다!');
+                repasswd.focus();
+                e.preventDefault();
+            } else if (name.value === '') {
+                alert('이름을 입력하세요!');
+                name.focus();
+                e.preventDefault();
+            } else if (email.value === '') {
+                alert('이메일을 입력하세요!');
+                email.focus();
+                e.preventDefault();
+            }
+        });
     </script>
-
+{% endcomment %}
 {% endblock %}
-
 

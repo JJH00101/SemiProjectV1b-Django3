@@ -3,30 +3,35 @@
 {% block title %} myinfo {% endblock %}
 
 {% block content %}
+{% if not request.session.userid %}
+    <script>
+        location.href = '/login';
+    </script>
+{% endif %}
     <h2>회원정보</h2>
     <table id="info">
         <tr>
             <th>아이디</th>
             <td>
-                qweasdqwe
+                {{ member.userid }}
             </td>
         </tr>
         <tr>
             <th>이름</th>
             <td>
-                aaaa
+                {{ member.name }}
             </td>
         </tr>
         <tr>
             <th>이메일</th>
             <td>
-                qweasdqwe@gmail.com
+                {{ member.email }}
             </td>
         </tr>
         <tr>
             <th>가입일</th>
             <td>
-                2022-05-27 12:17:36
+                {{ member.regdate }}
             </td>
         </tr>
     </table>
