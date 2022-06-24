@@ -142,6 +142,10 @@ table {
     color: green;
 }
 
+#board td:nth-child(2) {
+    text-align: left;
+}
+
 /*#board th:first-child {*/
 /*    width: 10%;*/
 /*}*/

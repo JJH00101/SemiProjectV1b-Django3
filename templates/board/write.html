@@ -17,27 +17,29 @@
         </div>
         <div>
             <label for="contents">본문</label>
-            <textarea name="contents" id="contents" rows="10" cols="50">
-            </textarea>
+            <textarea name="contents" id="contents" rows="10" cols="50"></textarea>
         </div>
         <div><label></label>
             <button type="button" id="boardbtn">입력완료</button>
             <button type="reset">다시입력</button>
         </div>
+        <input type="hidden" name="memberid" value="{{ request.session.userid_id }}">
     </form>
 {% endblock %}
 {% block jscript %}
     <script>
-        const boardbtn = document.querySelector('#boarddbtn')
+        const boardbtn = document.querySelector('#boardbtn')
         boardbtn.addEventListener('click', ()=>{
-            const title  =document.wirte.title
-            const contents  =document.wirte.content
+            const title  =document.boardfrm.title
+            const contents  =document.boardfrm.contents
             if (title.value === ''){
-                alert('제목을 작성하게요!');
+                alert('제목을 작성하세요!');
                 title.focus();
             }else if (contents.value === ''){
-                alert('본문을 작성하게요!');
+                alert('본문을 작성하세요!');
                 contents.focus();
+            } else {
+                document.boardfrm.submit();
             }
         })
     </script>

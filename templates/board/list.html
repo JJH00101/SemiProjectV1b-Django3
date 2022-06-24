@@ -14,7 +14,7 @@
         </colgroup>
         <tr>
             <th colspan="5">
-                <button type="button" onclick="location.href='write.html'">새글쓰기</button>
+                <button type="button" onclick="location.href='/write'">새글쓰기</button>
             </th>
         </tr>
         <tr>
@@ -24,76 +24,15 @@
             <th>작성일</th>
             <th>조회</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td><a href="view.html?bno=1">시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</a></td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
+        {% for b in bds %}
+        <tr class="w">
+            <td>{{ b.id }}</td>
+            <td><a href="view.html?bno={{ b.id }}">{{ b.title }}</a></td>
+            <td>{{ b.userid }}</td>
+            <td>{{ b.regdate|date:'Y-m-d' }}</td>
+            <td>{{ b.view }}</td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>시간은 금이라구 친구! 진짜라구 친구! 정말이라고 친구!</td>
-            <td>gazro</td>
-            <td>2022-05-27</td>
-            <td>777</td>
-        </tr>
+        {% endfor %}
     </table>
     <ul id="pgnav">
         <li>이전</li>
