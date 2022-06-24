@@ -3,24 +3,42 @@
 {% block title %} write {% endblock %}
 
 {% block content %}
-        <h2>게시판 새글쓰기</h2>
-        <form name="boardfrm" method="post" action="board.do" id="write">
-            <div>
-                <label for="title">제목</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div>
-                <label for="title">작성자</label>
-                <span>gazro</span>
-            </div>
-            <div>
-                <label for="contents">본문</label>
-                <textarea name="contents" id="contents" rows="10" cols="50">
+    <h2>게시판 새글쓰기</h2>
+    <form name="boardfrm" method="post" id="write">
+    {% csrf_token %}
+        {{ error }}
+        <div>
+            <label for="title">제목</label>
+            <input type="text" name="title" id="title">
+        </div>
+        <div>
+            <label for="title">작성자</label>
+            <span>gazro</span>
+        </div>
+        <div>
+            <label for="contents">본문</label>
+            <textarea name="contents" id="contents" rows="10" cols="50">
             </textarea>
-            </div>
-            <div><label></label>
-                <button type="submit">입력완료</button>
-                <button type="reset">다시입력</button>
-            </div>
-        </form>
+        </div>
+        <div><label></label>
+            <button type="button" id="boardbtn">입력완료</button>
+            <button type="reset">다시입력</button>
+        </div>
+    </form>
+{% endblock %}
+{% block jscript %}
+    <script>
+        const boardbtn = document.querySelector('#boarddbtn')
+        boardbtn.addEventListener('click', ()=>{
+            const title  =document.wirte.title
+            const contents  =document.wirte.content
+            if (title.value === ''){
+                alert('제목을 작성하게요!');
+                title.focus();
+            }else if (contents.value === ''){
+                alert('본문을 작성하게요!');
+                contents.focus();
+            }
+        })
+    </script>
 {% endblock %}
