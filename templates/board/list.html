@@ -25,13 +25,14 @@
             <th>조회</th>
         </tr>
         {% for b in bds %}
-        <tr class="w">
-            <td>{{ b.id }}</td>
-            <td><a href="view.html?bno={{ b.id }}">{{ b.title }}</a></td>
-            <td>{{ b.userid }}</td>
-            <td>{{ b.regdate|date:'Y-m-d' }}</td>
-            <td>{{ b.view }}</td>
-        </tr>
+            <tr class="w">
+                <td>{{ b.id }}</td>
+                <td><a href="/view?bno={{ b.id }}">{{ b.title }}</a></td>
+                {#            <td>{{ b.userid }}</td>#}
+                <td>{{ b.member.userid }}</td>
+                <td>{{ b.regdate|date:'Y-m-d' }}</td>
+                <td>{{ b.views }}</td>
+            </tr>
         {% endfor %}
     </table>
     <ul id="pgnav">
@@ -49,5 +50,20 @@
         <li>다음</li>
     </ul>
 {% endblock %}
+{% block jscript %}
+    <script>
+        const bditems = document.getElementsByTagName('td');
+        const bdcnt = '{{ bds.count }}';
 
+        document.write(bdcnt, '<br>');
+        document.write(bditems.length, '<br>');
+
+        {#document.write(bditems[0].innerHTML, '<br>');#}
+        {#document.write(bditems[5].innerHTML, '<br>');#}
+        for (let i = bdcnt, pos = 0; i > 0; --i, pos = pos + 5) {
+            document.write(i, '/', pos)
+            bditems[pos].innerHTML = i;
+        }
+    </script>
+{% endblock %}
 

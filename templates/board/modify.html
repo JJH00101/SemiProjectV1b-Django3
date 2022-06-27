@@ -3,33 +3,33 @@
 {% block title %} write {% endblock %}
 
 {% block content %}
-    <h2>게시판 새글쓰기</h2>
+    <h2>게시판 본문글 수정하기</h2>
     <form name="boardfrm" method="post" id="write">
     {% csrf_token %}
         {{ error }}
         <div>
             <label for="title">제목</label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" value="{{ bd.title }}">
         </div>
         <div>
             <label for="title">작성자</label>
-            <span>{{ request.session.member }}</span>
+            <span>{{ bd.member.userid }}</span>
         </div>
         <div>
             <label for="contents">본문</label>
-            <textarea name="contents" id="contents" rows="10" cols="50"></textarea>
+            <textarea name="contents" id="contents" rows="10" cols="50">{{ bd.contents }}</textarea>
         </div>
         <div><label></label>
-            <button type="button" id="boardbtn">입력완료</button>
+            <button type="button" id="mdfokbtn">수정완료</button>
             <button type="reset">다시입력</button>
         </div>
-        <input type="hidden" name="memberid" value="{{ request.session.userid_id }}">
+        <input type="hidden" name="bno" value="{{ bd.id }}">
     </form>
 {% endblock %}
 {% block jscript %}
     <script>
-        const boardbtn = document.querySelector('#boardbtn')
-        boardbtn.addEventListener('click', ()=>{
+        const mdfokbtn = document.querySelector('#mdfokbtn')
+        mdfokbtn.addEventListener('click', ()=>{
             const title  =document.boardfrm.title
             const contents  =document.boardfrm.contents
             if (title.value === ''){
